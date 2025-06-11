@@ -2,23 +2,17 @@
   Subtyping‑to‑Fixpoint generator
   --------------------------------
   Usage:
-      let fq = Refined_to_fq.refined_pair_to_fq
-                  ~cid:1 ~bid:1
-                  "{x:Int | x<5}"
-                  "{y:Int | y < 0}" in
-      print_endline fq
+    ocamlfind ocamlopt -package str -linkpkg gen.ml -o gen_fq
+  ./gen_fq                           
+  ./gen_fq mycheck.fq
   ---------------------------------------------------------------------------*)
 
   module Refined_to_fq = struct
-    (* ───────── helpers ─────────                                                     *)
-  
-    (* Regex to capture  { var : sort | predicate } *)
     let re_refined =
       Str.regexp
         "\\{[ \t\n]*\\([A-Za-z_][A-Za-z0-9_]*\\)[ \t\n]*:[ \t\n]*\
          \\([A-Za-z][A-Za-z0-9_]*\\)[ \t\n]*|[ \t\n]*\\([^}]+\\)[ \t\n]*\\}"
   
-    (* Parse one refined‑type literal *)
     let parse_refined rt =
       if Str.string_match re_refined rt 0 then
         let var  = Str.matched_group 1 rt in
@@ -34,7 +28,6 @@
       else
         Str.global_replace (Str.regexp_string old_var) new_var pred
   
-    (* ───────── public API ─────────                                                 *)
   
     let refined_pair_to_fq ?(cid = 1) ?(bid = 1) t1 t2 =
       let v1, sort1, p1 = parse_refined t1 in
@@ -53,9 +46,7 @@
         v1 sort1 p1 v1 sort1 p2 cid
   end
   
-  (* ---------------- example CLI ---------------- *)
   let () =
-  (* Example refined types; replace or make them CLI arguments if you like *)
   let t_left  = "{x:Int | x<0}"
   and t_right = "{y:Int | y<5}" in
 

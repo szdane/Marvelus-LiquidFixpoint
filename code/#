@@ -1,0 +1,5 @@
+constraint:
+  env []
+  lhs {x:Int | x<0}
+  rhs {x:Int | x<5}
+  id  1 tag []

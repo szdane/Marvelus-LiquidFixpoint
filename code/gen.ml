@@ -2,8 +2,7 @@
   Subtyping‑to‑Fixpoint generator
   --------------------------------
   Usage:
-    ocamlfind ocamlopt -package str -linkpkg gen.ml -o gen_fq
-  ./gen_fq                           
+    ocamlfind ocamlopt -package str -linkpkg gen.ml -o gen_fq                  
   ./gen_fq mycheck.fq
   ---------------------------------------------------------------------------*)
 

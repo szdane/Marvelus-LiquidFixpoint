@@ -1,5 +1,8 @@
+bind 1 u: {v: int | v = 5}
+bind 2 k: {v: Int | v=7}
+ 
 constraint:
-  env []
-  lhs {x:Int | x<0}
-  rhs {x:Int | x<5}
+  env [2; 1]
+  lhs {x:Int | x<u}
+  rhs {x:Int | x<k}
   id  1 tag []

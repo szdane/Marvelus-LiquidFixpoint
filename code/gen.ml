@@ -61,8 +61,8 @@
   end
   
   let () =
-  let t_left  = "{x:Int | x<u}"
-  and t_right = "{y:Int | y<k}" 
+  let t_left  = "{x:Int | x<k}"
+  and t_right = "{y:Int | y<u}" 
   and env = "u: {v: int | v = 5}"::"k: {v: Int | v=7}"::[] in
 
   let fq_text =

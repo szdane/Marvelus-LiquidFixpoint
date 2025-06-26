@@ -180,14 +180,14 @@
 (push 1)
 (define-fun b$36$$35$$35$1 () Bool (= u 5))
 (define-fun b$36$$35$$35$2 () Bool (= k 7))
-(define-fun b$36$$35$$35$3 () Bool (< VV$35$$35$1 u))
+(define-fun b$36$$35$$35$3 () Bool (< VV$35$$35$1 k))
 (push 1)
 (push 1)
 (assert (and true b$36$$35$$35$1 b$36$$35$$35$2 b$36$$35$$35$3))
 (push 1)
-(assert (not (< VV$35$$35$1 k)))
+(assert (not (< VV$35$$35$1 u)))
 (check-sat)
-; SMT Says: Unsat
+; SMT Says: Sat
 (pop 1)
 (pop 1)
 (pop 1)

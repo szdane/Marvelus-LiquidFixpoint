@@ -3,6 +3,6 @@ bind 2 k: {v: Int | v=7}
  
 constraint:
   env [2; 1]
-  lhs {x:Int | x<u}
-  rhs {x:Int | x<k}
+  lhs {x:Int | x<k}
+  rhs {y:Int | y<u}
   id  1 tag []
